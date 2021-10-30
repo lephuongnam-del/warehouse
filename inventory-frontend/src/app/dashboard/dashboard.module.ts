@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard.component';
 import { EditProfileComponent } from '../profile/edit-profile/edit-profile.component';
 import { UpdateDistributorComponent } from '../distributor/update-distributor/update-distributor.component';
 import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supplier.component';
+import { MapComponent } from '../map/map.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supp
     EditProfileComponent,
     UpdateDistributorComponent,
     UpdateSupplierComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,

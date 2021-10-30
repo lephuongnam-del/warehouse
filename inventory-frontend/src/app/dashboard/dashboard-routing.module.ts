@@ -12,6 +12,7 @@ import { UpdateDistributorComponent } from '../distributor/update-distributor/up
 import { ViewDistributorComponent } from '../distributor/view-distributor/view-distributor.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { RoleGuard } from '../guards/role.guard';
+import { MapComponent } from '../map/map.component';
 import { AddProductOrderComponent } from '../products/add-product-order/add-product-order.component';
 import { AddProductComponent } from '../products/add-product/add-product.component';
 import { ViewProductOrdersComponent } from '../products/view-product-orders/view-product-orders.component';
@@ -110,6 +111,9 @@ const routes: Routes = [
       { path: 'viewprofile', component: ViewProfileComponent },
       { path: 'editprofile', component: EditProfileComponent },
       { path: '', component: ViewProfileComponent },
+      {
+        path:'map',component:MapComponent
+      }
       // { path: '**', redirectTo: '/404' },
     ],
   },
