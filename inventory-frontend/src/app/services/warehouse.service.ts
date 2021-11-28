@@ -8,13 +8,13 @@ import { environment } from 'src/environments/environment';
 export class WarehouseService {
   serviceUrl =
     environment.protocol +
-    environment.applicationUrl +
-    '/' +
-    environment.supplierService;
+    environment.applicationUrl;
 
   constructor(private http: HttpClient) {}
 
   fetchAllWarehouse() {
     return this.http.get(this.serviceUrl + '/warehouse');
   }
+
+  
 }

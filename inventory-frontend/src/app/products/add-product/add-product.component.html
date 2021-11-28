@@ -21,37 +21,37 @@
                     /></label>
                     <input
                       class="form-control"
-                      [(ngModel)]="product.materialName"
+                      [(ngModel)]="product.name"
                       type="text"
                       placeholder="Product Name"
-                      name="materialName"
+                      name="name"
                       required
-                      #materialName="ngModel"
-                      [class.is-invalid]="materialName.invalid && materialName.touched"
+                      #name="ngModel"
+                      [class.is-invalid]="name.invalid && name.touched"
                     />
-                    <div *ngIf="materialName.errors && materialName.invalid && materialName.touched">
-                      <small class="text-danger" *ngIf="materialName.errors.required">Material Name is required field</small>
+                    <div *ngIf="name.errors && name.invalid && name.touched">
+                      <small class="text-danger" *ngIf="name.errors.required"> Name is required field</small>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <label for="description"
-                      ><strong>Description</strong><br
+                    <label for="buy_price"
+                      ><strong>Buy price</strong><br
                     /></label>
                     <input
                       class="form-control"
-                      [(ngModel)]="product.description"
-                      type="text"
-                      placeholder="Description"
+                      [(ngModel)]="product.buy_price"
+                      type="number"
+                      placeholder="buy price"
                       required
-                      name="description"
-                      #description="ngModel"
-                      [class.is-invalid]="description.invalid && description.touched"
+                      name="buy_price"
+                      #buy_price="ngModel"
+                      [class.is-invalid]="buy_price.invalid && buy_price.touched"
                     />
                     
-                    <div *ngIf="description.errors && description.invalid && description.touched">
-                      <small class="text-danger" *ngIf="description.errors.required">materialName is required field</small>
+                    <div *ngIf="buy_price.errors && buy_price.invalid && buy_price.touched">
+                      <small class="text-danger" *ngIf="buy_price.errors.required">buy_price is required field</small>
                     </div>
                   </div>
                 </div>
@@ -59,20 +59,22 @@
               <div class="form-row">
                 <div class="col">
                   <div class="form-group">
-                    <label for="quantity"><strong>Quantity</strong><br /></label
+                    <label for="quantity"><strong>sell price</strong><br /></label
                     ><input
                       class="form-control"
                       type="number"
-                      [(ngModel)]="product.quantityAvailable"
-                      name="quantityAvailable"
-                      disabled
-                      value="0"
-                      placeholder="0"
-                      #quantityAvailable="ngModel"
+                      [(ngModel)]="product.sell_price"
+                      name="sell_price"
+                      placeholder="sell_price"
+                      #sell_price="ngModel"
+                      [class.is-invalid]="sell_price.invalid && sell_price.touched"
                     />
+                    <div *ngIf="sell_price.errors && sell_price.invalid && sell_price.touched">
+                      <small class="text-danger" *ngIf="sell_price.errors.required">sell price is required field</small>
+                    </div>
                   </div>
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                   <div class="form-group">
                     <label for="Qty Unit"
                       ><strong>Quantity Unit</strong><br /></label
@@ -94,10 +96,10 @@
                       <small class="text-danger" *ngIf="quantityUnit.errors.required">Quantity Unit is required field</small>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="form-row">
-                <div class="col">
+                <!-- <div class="col">
                   <div class="form-group">
                     <label for="Qty Unit"
                       ><strong>Warehouse</strong><br /></label
@@ -125,7 +127,7 @@
                       <small class="text-danger" *ngIf="warehouse.errors.required">Warehouse ID is required field</small>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col">
                   <div class="form-group text-center">
                     <label for="submit"></label><br />

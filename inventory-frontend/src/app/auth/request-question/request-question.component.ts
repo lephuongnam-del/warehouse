@@ -9,7 +9,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+//import { AuthService } from 'src/app/services/auth.service';
 import { EventService } from 'src/app/services/event.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
@@ -24,7 +24,7 @@ export class RequestQuestionComponent implements OnInit, OnDestroy {
   submitted = false;
 
   constructor(
-    private authService: AuthService,
+   // private authService: AuthService,
     private router: Router,
     public loadingService: LoadingService,
     private eventService: EventService
@@ -35,41 +35,41 @@ export class RequestQuestionComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.initQuestionForm();
+  //  this.initQuestionForm();
   }
 
   requestSecretQuestion() {
-    this.submitted = true;
-    if (this.requestQuestionForm.valid)
-      this.submitData(this.requestQuestionForm.value.username);
+    // this.submitted = true;
+    // if (this.requestQuestionForm.valid)
+    //   this.submitData(this.requestQuestionForm.value.username);
   }
 
   submitData(formData) {
-    this.loadingService.enableLoading();
-    this.formSubscription = this.authService
-      .requestSecretQuestion(formData)
-      .subscribe(
-        (response) => {
-          this.loadingService.disableLoading();
-          this.eventService.resetPasswordData.next(response);
-          this.router.navigateByUrl('/login/changepassword');
-        },
-        (error) => {
-          this.loadingService.disableLoading();
-          if (error.error.message === 'FieldException')
-            error.error.errors.forEach((element) =>
-              this.requestQuestionForm.controls[element.field]?.setErrors({
-                serverValidationError: element.message,
-              })
-            );
-          else throw new Error(error);
-        }
-      );
+    // this.loadingService.enableLoading();
+    // this.formSubscription = this.authService
+    //   .requestSecretQuestion(formData)
+    //   .subscribe(
+    //     (response) => {
+    //       this.loadingService.disableLoading();
+    //       this.eventService.resetPasswordData.next(response);
+    //       this.router.navigateByUrl('/login/changepassword');
+    //     },
+    //     (error) => {
+    //       this.loadingService.disableLoading();
+    //       if (error.error.message === 'FieldException')
+    //         error.error.errors.forEach((element) =>
+    //           this.requestQuestionForm.controls[element.field]?.setErrors({
+    //             serverValidationError: element.message,
+    //           })
+    //         );
+    //       else throw new Error(error);
+    //     }
+    //   );
   }
 
   initQuestionForm() {
-    this.requestQuestionForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-    });
+    // this.requestQuestionForm = new FormGroup({
+    //   username: new FormControl('', [Validators.required]),
+    // });
   }
 }

@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Gender } from 'src/app/models/gender.model';
-import { AuthService } from 'src/app/services/auth.service';
+//import { AuthService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ManageUserService } from 'src/app/services/manage-user.service';
 
@@ -30,18 +30,18 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     private userService: ManageUserService,
     public loadingService: LoadingService,
     private router: Router,
-    public authService: AuthService,
+   // public authService: AuthService,
     private route: ActivatedRoute
   ) { }
 
   fetchUserDataFromServer() {
     this.loadingService.enableLoading();
-    this.userService
-      .fetchById(this.authService.fetchFromSessionStorage()?.userId)
-      .subscribe((res) => {
-        this.loadingService.disableLoading();
-        this.populateFormFields(res);
-      });
+    // this.userService
+    //   .fetchById(this.authService.fetchFromSessionStorage()?.userId)
+    //   .subscribe((res) => {
+    //     this.loadingService.disableLoading();
+    //     this.populateFormFields(res);
+    //   });
   }
 
   submitForm() {

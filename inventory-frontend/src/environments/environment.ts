@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   // applicationUrl: 'localhost',
   protocol: 'http://',
-  applicationUrl: 'localhost:9000',
+  applicationUrl: 'localhost:8000/warehouse_map_api/api',
   authService: 'inventory-auth-service',
   stockManagementService: 'inventory-stock-management-service',
   productOrderService: 'inventory-product-order-service',

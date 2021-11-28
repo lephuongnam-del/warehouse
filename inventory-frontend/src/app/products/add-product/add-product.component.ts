@@ -11,32 +11,27 @@ import { WarehouseService } from 'src/app/services/warehouse.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  product: Product;
+  product = new Product ();
   warehouses: Warehouse[] = [];
   warehouseId;
 
+  name:string;
+  buy_price:number;
+  sell_price:number;
   constructor(
     private service: ProductService,
-    private warehouseService: WarehouseService,
     private router: Router
-  ) {
-    this.product = new Product();
-    this.warehouseService.fetchAllWarehouse().subscribe((data: Warehouse[]) => {
-      this.warehouses = data;
-    });
-  }
+  ) { }
 
-  ngOnInit(): void {
-    this.product = new Product();
+  ngOnInit(): void {  
   }
 
   saveProduct(formData) {
-    let warhouse = new Warehouse();
-    this.product.quantityAvailable = 0;
-    warhouse.warehouseId = +formData.warehouseId;
-    this.product.warehouse = warhouse;
-    this.service.addProduct(this.product).subscribe((res) => {
-      this.router.navigate(['/dashboard/products']);
+    console.log(formData)
+    this.service.addProduct(formData).subscribe((res) => {
+     // this.router.navigate(['/dashboard/products']);
+     console.log(res)
     });
+
   }
 }

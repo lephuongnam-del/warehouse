@@ -34,27 +34,27 @@ export class AddProductOrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.distributorService
-      .fetchAllDistributors()
-      .subscribe((response: Distributor[]) => {
-        this.distributor = response;
-        console.log(this.distributor);
-      });
-    this.productService.fetchAllProducts().subscribe((response: Product[]) => {
-      this.products = response;
-    });
+    // this.distributorService
+    //   .fetchAllDistributors()
+    //   .subscribe((response: Distributor[]) => {
+    //     this.distributor = response;
+    //     console.log(this.distributor);
+    //   });
+    // this.productService.fetchAllProducts().subscribe((response: Product[]) => {
+    //   this.products = response;
+    // });
   }
 
   getSelectedOptionText(id: number) {
     this.distributorId = id;
   }
 
-  selectProduct(productId) {
-    this.productId = productId;
-    this.unit = this.products.find(
-      (p) => p.productId == productId
-    ).quantityUnit;
-  }
+  // selectProduct(productId) {
+  //   this.productId = productId;
+  //   this.unit = this.products.find(
+  //     (p) => p.productId == productId
+  //   ).quantityUnit;
+  // }
 
   placeOrder() {
     this.productOrderRequest.productId = this.productId;
