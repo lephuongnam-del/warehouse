@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { mapDetailService } from 'src/app/services/map-service';
 declare var H: any;
 
 @Component({
@@ -22,23 +21,22 @@ export class MapComponent {
 
   private platform: any;
   private map: any;
-
   start: any;
   finish: any;
   router: any;
   directions: any;
-
+  // private markers: this.map.marker[];
   public query: string;
   private search: any;
   private ui: any;
   public address: string = '';
-
-
-  public constructor() {
+  // private mapDetailService: mapDetailService;
+  public constructor(private mapService: mapDetailService) {
     this.query = "";
   }
-
   public ngOnInit() {
+    
+    console.log("running")
     this.platform = new H.service.Platform({
       app_id: 'DemoAppId01082013GAL',
       app_code: 'AJKnXv84fjrb0KIHawS0Tg',
@@ -50,8 +48,6 @@ export class MapComponent {
     this.directions = [];
 
   }
-
-
 
   public ngAfterViewInit() {
     let pixelRatio = window.devicePixelRatio || 1;
@@ -69,13 +65,13 @@ export class MapComponent {
     this.map.setCenter({ lat: this.lat, lng: this.lng });
     this.map.setZoom(14);
 
-    //this.setUpClickListener(this.map);  
+    this.setUpClickListener(this.map);  
 
-    this.dropMarker({ lat: "10.762622", lng: "106.660172" }, "HCM")
-    this.dropMarker({ lat: "21.028511", lng: "105.804817" }, "HN")
-    this.start = "10.762622,106.660172"
-    this.finish = "21.028511,105.804817"
-    this.route(this.start, this.finish)
+    // this.dropMarker({ lat: "10.762622", lng: "106.660172" }, "HCM")
+    // this.dropMarker({ lat: "21.028511", lng: "105.804817" }, "HN")
+    // this.start = "10.762622,106.660172"
+    // this.finish = "21.028511,105.804817"
+    // this.route(this.start, this.finish)
   }
 
   public places(query: string) {
@@ -102,9 +98,23 @@ export class MapComponent {
       });
       this.ui.addBubble(bubble);
     }, false);
+    this.map.removeObjects(this.map.getObjects());
+    
     this.map.addObject(marker);
   }
-
+  public setUpClickListener(map: any) {  
+    let self = this;  
+    this.map.addEventListener('tap', function (evt) {  
+      let coord = map.screenToGeo(evt.currentPointer.viewportX, evt.currentPointer.viewportY);  
+      self.lat = Math.abs(coord.lat.toFixed(4)) + ((coord.lat > 0) ? 'N' : 'S');  
+      self.lng = Math.abs(coord.lng.toFixed(4)) + ((coord.lng > 0) ? 'E' : 'W'); 
+      self.mapService.changeCoordinateLat(self.lat);
+      self.mapService.changeCoordinateLng(self.lng);
+      self.dropMarker({"lat": Math.abs(coord.lat.toFixed(4)),  "lng": Math.abs(coord.lng.toFixed(4))}, self.fetchAddress(coord.lat, coord.lng)); 
+    });  
+    
+  }  
+  public setUpClick
   public route(start: any, finish: any) {
     let params = {
       "mode": "fastest;car",
@@ -156,15 +166,15 @@ export class MapComponent {
   // });  
   //}  
 
-  //private fetchAddress(lat: any, lng: any): void {  
-  // let self = this;  
-  // let geocoder: any = this.platform.getGeocodingService(),  
-  //   parameters = {  
-  //     prox: lat + ', ' + lng + ',20',  
-  //     mode: 'retrieveAreas',  
-  //     gen: '9'  
-  //   };  
-
+  private fetchAddress(lat: any, lng: any): void {  
+  let self = this;  
+  let geocoder: any = this.platform.getGeocodingService(),  
+    parameters = {  
+      prox: lat + ', ' + lng + ',20',  
+      mode: 'retrieveAreas',  
+      gen: '9'  
+    };  
+  }
 
   // geocoder.reverseGeocode(parameters,  
   //   function (result: { Response: { View: { Result: { Location: { Address: any; }; }[]; }[]; }; }) {  

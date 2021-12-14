@@ -26,6 +26,7 @@ export class SupplierService {
   }
 
   addSupplier(formData) {
+    console.log(formData)
     return this.http.post(this.serviceUrl + '/supplier', formData);
   }
 

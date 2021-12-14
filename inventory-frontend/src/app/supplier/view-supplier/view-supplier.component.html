@@ -13,7 +13,6 @@
       <tr>
         <th>Name</th>
   
-        <th>Phone Number</th>
 
         <th
           [routerLink]="['/dashboard/addsupplier']"
@@ -27,7 +26,7 @@
     <tbody>
       <tr *ngFor="let supplier of suppliers" routerLink='{{supplier.warehouse_id}}'>
         <td>{{ supplier.warehouse_Name }}</td>
-        <td>{{ supplier.phoneNumber }}</td>
+
         <td>
           <button
             class="btn btn-primary"
@@ -39,6 +38,7 @@
       </tr>
     </tbody>
   </table>
+  
 </div>
 
 <br />

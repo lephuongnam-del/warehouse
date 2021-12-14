@@ -16,7 +16,8 @@ import { AuthModule } from './auth/auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { httpInterceptors } from './interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+// import { AppComponent } from './app.component';
+import { MapComponent } from './map/map.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [

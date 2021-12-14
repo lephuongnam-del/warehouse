@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AddSupplierComponent } from './add-supplier.component';
 
 describe('AddSupplierComponent', () => {

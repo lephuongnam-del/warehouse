@@ -13,26 +13,10 @@
           
           </div>
         </div>
-
-      <div class="form-group">
-        <label for="location">Location : </label>
-        <input class="form-control" type="location" [(ngModel)]="supplier.location" name="location" required placeholder="Enter Supplier's Location" pattern="[A-Z][A-Za-z]{2,}"
-          #location=ngModel   [class.is-invalid]="(location.invalid && location.touched)"
-          >
-          <div *ngIf="location.errors && (location.invalid && location.touched)">
-            <small class="text-danger" *ngIf="location.errors.required">Location is required field</small>
-          </div> </div>
-
-      <div class="form-group">
-        <label for="phoneNo">Phone number : </label>
-        <input class="form-control" type="phoneNo" [(ngModel)]="supplier.phoneNo" name="phoneNo" required placeholder="Enter Suppliers's Phone number"
-          #phoneNo=ngModel  [class.is-invalid]="(phoneNo.invalid && location.touched)">
-        <div *ngIf="phoneNo.errors && (phoneNo.invalid && phoneNo.touched)" >
-            <small class="text-danger" *ngIf="phoneNo.errors.required">Phone Number is required field</small>
-        </div> 
-      </div>
+    
 
 <br>
     <button type="submit" [disabled]=supplierdetails.invalid class="btn btn-primary">Submit</button>
   </form>
 </div>
+<app-map [lat]='supplier.location_x' [lng]='supplier.location_y'></app-map>

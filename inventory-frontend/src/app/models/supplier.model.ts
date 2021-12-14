@@ -8,6 +8,6 @@
 export class Supplier {
   supplierId: number;
   name: string;
-  location: string;
-  phoneNo: string;
+  location_x: number;
+  location_y: number;
 }
