@@ -21,16 +21,16 @@
                     /></label>
                     <input
                       class="form-control"
-                      [(ngModel)]="product.name"
+                      [(ngModel)]="product.product_Name"
                       type="text"
                       placeholder="Product Name"
-                      name="name"
+                      name="product_Name"
                       required
-                      #name="ngModel"
-                      [class.is-invalid]="name.invalid && name.touched"
+                      #product_Name="ngModel"
+                      [class.is-invalid]="product_Name.invalid && product_Name.touched"
                     />
-                    <div *ngIf="name.errors && name.invalid && name.touched">
-                      <small class="text-danger" *ngIf="name.errors.required"> Name is required field</small>
+                    <div *ngIf="product_Name.errors && product_Name.invalid && product_Name.touched">
+                      <small class="text-danger" *ngIf="product_Name.errors.required"> Name is required field</small>
                     </div>
                   </div>
                 </div>
@@ -74,29 +74,27 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col">
+                <div class="col">
                   <div class="form-group">
                     <label for="Qty Unit"
                       ><strong>Quantity Unit</strong><br /></label
-                    ><select
+                    ><input
                       class="form-control"
-                      name="quantityUnit"
+                      name="qty"
+                      type="number"
                       required
-                      [(ngModel)]="product.quantityUnit"
-                      #quantityUnit="ngModel"
-                      [class.is-invalid]="quantityUnit.invalid && quantityUnit.touched"
-                    >
-                      <optgroup label="Quantity Parameters">
-                        <option value="Litre" selected="">Litre</option>
-                        <option value="Kilogram">Kilogram</option>
-                      </optgroup>
-                    </select>
+                      [(ngModel)]="product.qty"
+                      #qty="ngModel"
+                      [class.is-invalid]="qty.invalid && qty.touched"
+                    />
+                     
+                  
                     
-                    <div *ngIf="quantityUnit.errors && quantityUnit.invalid && quantityUnit.touched">
-                      <small class="text-danger" *ngIf="quantityUnit.errors.required">Quantity Unit is required field</small>
+                    <div *ngIf="qty.errors && qty.invalid && qty.touched">
+                      <small class="text-danger" *ngIf="qty.errors.required">Quantity Unit is required field</small>
                     </div>
                   </div>
-                </div> -->
+                </div>
               </div>
               <div class="form-row">
                 <!-- <div class="col">
@@ -131,7 +129,7 @@
                 <div class="col">
                   <div class="form-group text-center">
                     <label for="submit"></label><br />
-                    <button class="btn btn-primary" type="submit" name="submit">
+                    <button  [disabled]="addForm.invalid" class="btn btn-primary" type="submit" name="submit">
                       ADD PRODUCT
                     </button>
                   </div>

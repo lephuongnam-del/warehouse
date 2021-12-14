@@ -14,8 +14,8 @@ export class MapComponent {
 
   @ViewChild("map", { static: true }) public mapElement: ElementRef;
 
-  public lat: any = '10.762622';
-  public lng: any = '106.660172';
+   @Input() lat: any ;
+   @Input() lng: any ;
 
   public width: any = '1000px';
   public height: any = '600px';
@@ -33,6 +33,7 @@ export class MapComponent {
   private ui: any;
   public address: string = '';
 
+
   public constructor() {
     this.query = "";
   }
@@ -47,7 +48,10 @@ export class MapComponent {
     this.search = new H.places.Search(this.platform.getPlacesService());
     this.router = this.platform.getRoutingService();
     this.directions = [];
+
   }
+
+
 
   public ngAfterViewInit() {
     let pixelRatio = window.devicePixelRatio || 1;
@@ -77,7 +81,9 @@ export class MapComponent {
   public places(query: string) {
     this.map.removeObjects(this.map.getObjects());
     this.search.request({ "q": query, "at": this.lat + "," + this.lng }, {}, (data: { results: { items: string | any[]; }; }) => {
+      console.log("lat"+ data)
       for (let i = 0; i < data.results.items.length; i++) {
+        
         this.dropMarker({ "lat": data.results.items[i].position[0], "lng": data.results.items[i].position[1] }, data.results.items[i]);
         if (i == 0)
           this.map.setCenter({ lat: data.results.items[i].position[0], lng: data.results.items[i].position[1] })

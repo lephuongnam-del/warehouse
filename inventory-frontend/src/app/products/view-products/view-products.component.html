@@ -1,4 +1,4 @@
-<div>
+<div  >
   <div class="d-flex flex-column" id="content-wrapper">
     <div id="content">
       <div class="container-fluid">
@@ -11,7 +11,7 @@
             
                 class="btn btn-primary align-content-end float-right"
                 type="button"
-                (click)="navigate()"
+                routerLink='addproduct/{{products.warehouse_id}}'
               >
                 Add Products
               </button>
@@ -44,29 +44,37 @@
                   <tr>
                     <!-- <th scope="col">Id</th> -->
                     <th scope="col">Name</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Qty</th>
-                    <th scope="col">Units</th>
-                    <th scope="col">Warehouse Name</th>
+                    <th scope="col">Buy price</th>
+                    <th scope="col">Sell price</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr >
                     <!-- <th scope="row">{{product.productId}}</th> -->
-                    <td>name</td>
-                    <td>des</td>
-                    <td>
-                      Qty
-                    </td>
-                    <td>unit</td>
-                    <td>name</td>
-                  </tr>
+                    <tr *ngFor='let p of products.product' >
+                      <td>{{p.product_Name}}</td>
+                      <td>{{p.qty}}</td>
+                      <td>
+                         {{ p.buy_price }} $
+                      </td>
+                      <td> {{ p.sell_price}}$</td>
+        
+                    </tr>
+                  
+  
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="container-fluid" style="margin-top: 20px;">
+        <h1>Location</h1>
+        <app-map [lat]='products.location_x' [lng]='products.location_Y'></app-map>
+      </div>
     </div>
   </div>
 </div>
+
+

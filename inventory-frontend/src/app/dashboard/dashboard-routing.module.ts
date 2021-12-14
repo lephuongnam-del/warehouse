@@ -37,14 +37,12 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     children: [
       {
-        path: 'products',
+        path: 'suppliers/:id',
         component: ViewProductsComponent,
       },
       {
-        path: 'addproduct',
-        component: AddProductComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
+        path: 'suppliers/:id/addproduct/:id',
+        component: AddProductComponent
       },
       { path: 'productorders', component: ViewProductOrdersComponent },
       { path: 'addproductorder', component: AddProductOrderComponent },
@@ -55,8 +53,6 @@ const routes: Routes = [
       {
         path: 'addrawmaterial',
         component: AddRawMaterialComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
       },
       { path: 'rawmaterialorders', component: ViewRawMaterialOrdersComponent },
       { path: 'addrawmaterialorder', component: AddRawMaterialOrderComponent },
@@ -65,8 +61,6 @@ const routes: Routes = [
       },
       {
         path: 'addsupplier',component: AddSupplierComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
       },
       {
         path: 'distributors',
@@ -75,26 +69,22 @@ const routes: Routes = [
       {
         path: 'adddistributors',
         component: AddDistributorComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
+
       },
       {
         path: 'updatesupplier/:id',
         component: UpdateSupplierComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
+      
       },
       {
         path: 'updatedistributor/:id',
         component: UpdateDistributorComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
+    
       },
       {
         path: 'users',
         component: ViewUsersComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Admin' },
+     
       },
       {
         path: 'adduser',
@@ -110,10 +100,10 @@ const routes: Routes = [
       },
       { path: 'viewprofile', component: ViewProfileComponent },
       { path: 'editprofile', component: EditProfileComponent },
-      { path: '', component: ViewProfileComponent },
+      { path: '', pathMatch:'full',redirectTo:'suppliers' },
       {
         path:'map',component:MapComponent
-      }
+      },
       // { path: '**', redirectTo: '/404' },
     ],
   },

@@ -30,4 +30,9 @@ export class ProductService {
   addProduct(formData) {
     return this.http.post(this.serviceUrl + '/add_product', formData,{headers:this.headers});
   }
+
+
+  
+
+
 }
