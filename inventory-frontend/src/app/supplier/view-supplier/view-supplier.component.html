@@ -24,8 +24,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let supplier of suppliers" routerLink='{{supplier.warehouse_id}}'>
-        <td>{{ supplier.warehouse_Name }}</td>
+      <tr *ngFor="let supplier of suppliers" routerLink='/dashboard/updatesupplier/{{supplier.id}}'>
+        <td>{{ supplier.brand_name }}</td>
 
         <td>
           <button

@@ -10,25 +10,26 @@ import { mapDetailService } from 'src/app/services/map-service';
 })
 export class AddSupplierComponent implements OnInit {
   supplier: Supplier;
-  lat: number;
-  lng; number;
+  
   constructor(private mapService: mapDetailService, private service: SupplierService, private router: Router) {
     this.supplier = new Supplier();
   }
-
+  lat: number;
+  lng: number
   ngOnInit(): void {
+    this.supplier.location["geo_location_x"] = 10.762622;
+    this.supplier.location["geo_location_y"] = 106.660172;
     this.mapService.changeCoordinateLat(10.762622);
     this.mapService.changeCoordinateLng(106.660172);
     this.mapService.currentCoordinatelat.subscribe(lat => (
-      console.log("lat : " + lat)
-      )); //<= Always get current value!
-      // this.lat= lat
+      this.lat = lat));
     this.mapService.currentCoordinatelng.subscribe(lng => (
       this.lng= lng));
   }
 
   addSupplier() {
-    
+    this.supplier.location["geo_location_x"] = this.lat;
+    this.supplier.location["geo_location_y"] = this.lng;
     this.service.addSupplier(this.supplier).subscribe((res) => {
       this.router.navigate(['/dashboard/suppliers']);
     });

@@ -41,6 +41,10 @@ const routes: Routes = [
         component: ViewProductsComponent,
       },
       {
+        path: 'supplier_list/:id',
+        component: ViewSupplierComponent
+      },
+      {
         path: 'suppliers/:id/addproduct/:id',
         component: AddProductComponent
       },
@@ -100,7 +104,7 @@ const routes: Routes = [
       },
       { path: 'viewprofile', component: ViewProfileComponent },
       { path: 'editprofile', component: EditProfileComponent },
-      { path: '', pathMatch:'full',redirectTo:'suppliers' },
+      { path: '', pathMatch:'full',redirectTo:'suppliers/1' },
       {
         path:'map',component:MapComponent
       },

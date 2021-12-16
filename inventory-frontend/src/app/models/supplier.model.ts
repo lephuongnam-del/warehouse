@@ -6,8 +6,10 @@
  * @desc Supplier Etity
  */
 export class Supplier {
-  supplierId: number;
-  name: string;
-  location_x: number;
-  location_y: number;
+  id: number;
+  brand_name: string;
+  location: Object = {
+    geo_location_x: 10.762622,
+    geo_location_y: 106.660172
+  }
 }

@@ -34,7 +34,7 @@ export class AddRawMaterialOrderComponent implements OnInit {
   }
   initSupplierDropdown() {
     this.supplierService
-      .fetchAllSuppliers()
+      .fetchAllSuppliers(1)
       .subscribe((res: Supplier[]) => (this.suppliers = res));
   }
   initRawmterialDropdown() {

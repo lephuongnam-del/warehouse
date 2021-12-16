@@ -29,6 +29,7 @@ export class UpdateSupplierComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+    
   }
 
   updateSupplier() {
