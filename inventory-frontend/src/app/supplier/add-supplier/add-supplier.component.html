@@ -11,7 +11,7 @@
       <input
         class="form-control"
         type="name"
-        [(ngModel)]="supplier.name"
+        [(ngModel)]="supplier.brand_name"
         name="name"
         required
         placeholder="Enter Supplier's Name"
@@ -33,7 +33,6 @@
     <br />
     <button
       type="submit"
-      [disabled]="supplierdetails.invalid"
       class="btn btn-info"
     >
       Add Supplier

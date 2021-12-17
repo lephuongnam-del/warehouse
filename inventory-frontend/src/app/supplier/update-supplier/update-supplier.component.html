@@ -5,7 +5,7 @@
 
     <div class="form-group" >
         <label for="name">Name of Supplier : </label>
-        <input class="form-control" type="name" [(ngModel)]="supplier.name" name="name" required placeholder="Enter Supplier's Name" 
+        <input class="form-control" type="name" [(ngModel)]="supplier.brand_name" name="name" required placeholder="Enter Supplier's Name" 
           #name=ngModel   [class.is-invalid]="(name.invalid && name.touched)"
           >
           <div *ngIf="name.errors && (name.invalid && name.touched)">
@@ -19,4 +19,4 @@
     <button type="submit" [disabled]=supplierdetails.invalid class="btn btn-primary">Submit</button>
   </form>
 </div>
-<app-map [lat]='supplier.location_x' [lng]='supplier.location_y'></app-map>
+<app-map [lat]='supplier.location["geo_location_x"]' [lng]='supplier.location["geo_location_y"]'></app-map>

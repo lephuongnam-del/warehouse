@@ -20,7 +20,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   fetchAllProducts() {
-    return this.http.get(this.serviceUrl + '/productStock');
+    return this.http.get(this.serviceUrl + '/product_list/1');
   }
 
   getProductByProductId(productId: number) {

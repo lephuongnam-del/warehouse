@@ -11,7 +11,7 @@
             
                 class="btn btn-primary align-content-end float-right"
                 type="button"
-                routerLink='addproduct/{{products.warehouse_id}}'
+                routerLink='/dashboard/addproduct'
               >
                 Add Products
               </button>
@@ -44,21 +44,17 @@
                   <tr>
                     <!-- <th scope="col">Id</th> -->
                     <th scope="col">Name</th>
-                    <th scope="col">Qty</th>
                     <th scope="col">Buy price</th>
                     <th scope="col">Sell price</th>
                   </tr>
                 </thead>
                 <tbody>
                     <!-- <th scope="row">{{product.productId}}</th> -->
-                    <tr *ngFor='let p of products.product' >
-                      <td>{{p.product_Name}}</td>
-                      <td>{{p.qty}}</td>
-                      <td>
-                         {{ p.buy_price }} $
-                      </td>
-                      <td> {{ p.sell_price}}$</td>
-        
+                    <tr *ngFor='let p of products' >
+                      <td>{{p.name}}</td>
+                      <td>{{p.sell_price}}</td>
+                      <td>{{p.buy_price}}</td>
+
                     </tr>
                   
   

@@ -29,6 +29,16 @@ import { ViewSupplierComponent } from '../supplier/view-supplier/view-supplier.c
 import { AddUserComponent } from '../users/add-user/add-user.component';
 import { ViewUsersComponent } from '../users/view-users/view-users.component';
 import { DashboardComponent } from './dashboard.component';
+import { AddStaffComponent } from '../staffs/add-staff/add-staff.component';
+import { PositionComponent } from '../position/position.component';
+import { AddPositionComponent } from '../position/add-position/add-position.component';
+import { ViewStaffComponent } from '../staffs/view-staff/view-staff.component';
+import { AddOrderComponent } from '../order/add-order/add-order.component';
+import { ViewOrderComponent } from '../order/view-order/view-order.component';
+import { ViewOrderDetailComponent } from '../order/view-order-detail/view-order-detail.component';
+import { ViewBillComponent } from '../bill/view-bill/view-bill.component';
+import { AddBillComponent } from '../bill/add-bill/add-bill.component';
+import { ViewBillDetailComponent } from '../bill/view-bill-detail/view-bill-detail.component';
 
 const routes: Routes = [
   {
@@ -37,8 +47,18 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     children: [
       {
-        path: 'suppliers/:id',
+        path: 'product_list/:id',
         component: ViewProductsComponent,
+      },
+      {
+        path:'addposition',component:AddPositionComponent
+      },
+      {
+        path:'position',component:PositionComponent
+      },
+      {
+        path: 'supplier_list/:id',
+        component: ViewSupplierComponent
       },
       {
         path: 'suppliers/:id/addproduct/:id',
@@ -46,10 +66,53 @@ const routes: Routes = [
       },
       { path: 'productorders', component: ViewProductOrdersComponent },
       { path: 'addproductorder', component: AddProductOrderComponent },
+      { 
+        path: 'addstaff',
+        component: AddStaffComponent 
+      },
+      {
+        path: 'vieworderdetail/:id',
+        component: ViewOrderDetailComponent
+      },
+      {
+        path:'vieworder',
+        component:ViewOrderComponent
+      },
+      {
+        path: 'addorder',
+        component: AddOrderComponent
+      },
+      {
+        path: 'viewbill',
+        component: ViewBillComponent
+      },
+      {
+        path: 'viewbilldetail/:id',
+        component: ViewBillDetailComponent
+      },
+      {
+        path: 'addbill',
+        component: AddBillComponent
+      },
+      { 
+        path: 'staff',
+        component: ViewStaffComponent
+      },
       {
         path: 'rawmaterials',
         component: ViewRawMaterialComponent,
       },
+      {
+        path: 'addrawmaterial',
+        component: AddRawMaterialComponent,
+      },
+      {
+        path: 'addproduct',
+        component: AddProductComponent,
+      },
+      // {
+      //   path: 'viewProduct', ViewProductsComponent,
+      // },
       {
         path: 'addrawmaterial',
         component: AddRawMaterialComponent,
@@ -100,7 +163,7 @@ const routes: Routes = [
       },
       { path: 'viewprofile', component: ViewProfileComponent },
       { path: 'editprofile', component: EditProfileComponent },
-      { path: '', pathMatch:'full',redirectTo:'suppliers' },
+      { path: '', pathMatch:'full',redirectTo:'suppliers/1' },
       {
         path:'map',component:MapComponent
       },

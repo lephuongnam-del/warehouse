@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product.model';
 import { Warehouse } from 'src/app/models/warehouse.model';
 import { DataService } from 'src/app/services/data.service';
 import { Location } from '@angular/common'
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -21,19 +22,26 @@ export class AddProductComponent implements OnInit {
   constructor( private dataService: DataService,
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {  
     this.route.params.forEach((params: Params) => {
-      this.data = this.dataService.getSingleWarehouse(+params['id'])
-      console.log(this.data)
+      // this.data = this.dataService.getSingleWarehouse(+params['id'])
+      // console.log(this.data)
+      this.data
     })
   }
 
   saveProduct(formData) {
-    this.data.product.push(formData)
-    this.location.back()
+    // this.data.product.push(formData)
+    // this.location.back()
+    console.log(formData);
+    this.productService.addProduct(formData).subscribe((res) => {
+      console.log(res);
+      this.router.navigate(['/dashboard/product_list/1']);
+    });
     // this.dataService.updateEvent( this.data)
     // this.service.addProduct(formData).subscribe((res) => {
     //   alert('add successful')

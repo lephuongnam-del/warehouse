@@ -21,18 +21,18 @@
         [routerLink]="['/dashboard']"
       >
         <div class="sidebar-brand-icon rotate-n-15"></div>
-        <div class="sidebar-brand-text mx-3">Welcome, User name</div>
+        <div class="sidebar-brand-text mx-3">Welcome </div>
       </a>
       <hr class="nav-hr" />
       <ul class="nav navbar-nav text-light" id="accordionSidebar">
         <li class="nav-item" >
-          <a class="nav-link" >
-            <i ></i><span>name</span>
+          <a class="nav-link"  [routerLink]="['/dashboard/supplier_list/1']">
+            <i ></i><span>Warehouse</span>
           </a>
         </li>
         <li class="nav-item" >
-          <a class="nav-link"  [routerLink]="['/dashboard/suppliers']">
-            <i ></i><span>Warehouse</span>
+          <a class="nav-link"  [routerLink]="['/dashboard/product_list/1']">
+            <i ></i><span>product</span>
           </a>
         </li>
         <li class="nav-item" >
@@ -40,11 +40,31 @@
             <i ></i><span>Map</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" >
+          <a class="nav-link" [routerLink]="['/dashboard/position']" >
+            <i ></i><span>Position</span>
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" [routerLink]="['/dashboard/staff']" >
+            <i ></i><span>staff</span>
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" [routerLink]="['/dashboard/vieworder']" >
+            <i ></i><span>order</span>
+          </a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" [routerLink]="['/dashboard/viewbill']" >
+            <i ></i><span>bill</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
           <a class="nav-link" style="cursor: pointer">
             <i class="fas fa-sign-out-alt"> </i><span>Sign Out</span>
           </a>
-        </li>
+        </li> -->
       </ul>
       <div class="text-center d-none d-md-inline">
         <button
