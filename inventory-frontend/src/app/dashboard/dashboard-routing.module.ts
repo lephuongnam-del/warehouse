@@ -29,7 +29,9 @@ import { ViewSupplierComponent } from '../supplier/view-supplier/view-supplier.c
 import { AddUserComponent } from '../users/add-user/add-user.component';
 import { ViewUsersComponent } from '../users/view-users/view-users.component';
 import { DashboardComponent } from './dashboard.component';
-
+import { AddStaffComponent } from '../staffs/add-staff/add-staff.component';
+import { PositionComponent } from '../position/position.component';
+import { AddPositionComponent } from '../position/add-position/add-position.component';
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -37,8 +39,14 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     children: [
       {
-        path: 'suppliers/:id',
+        path: 'product_list/:id',
         component: ViewProductsComponent,
+      },
+      {
+        path:'addposition',component:AddPositionComponent
+      },
+      {
+        path:'position',component:PositionComponent
       },
       {
         path: 'supplier_list/:id',
@@ -50,10 +58,29 @@ const routes: Routes = [
       },
       { path: 'productorders', component: ViewProductOrdersComponent },
       { path: 'addproductorder', component: AddProductOrderComponent },
+      { 
+        path: 'addstaff',
+        component: AddStaffComponent 
+      },
+      { 
+        path: 'viewstaff',
+        component: AddStaffComponent 
+      },
       {
         path: 'rawmaterials',
         component: ViewRawMaterialComponent,
       },
+      {
+        path: 'addrawmaterial',
+        component: AddRawMaterialComponent,
+      },
+      {
+        path: 'addproduct',
+        component: AddProductComponent,
+      },
+      // {
+      //   path: 'viewProduct', ViewProductsComponent,
+      // },
       {
         path: 'addrawmaterial',
         component: AddRawMaterialComponent,

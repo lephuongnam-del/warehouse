@@ -18,8 +18,10 @@ import { httpInterceptors } from './interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
+import { PositionComponent } from './position/position.component';
+import { AddPositionComponent } from './position/add-position/add-position.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PositionComponent, AddPositionComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

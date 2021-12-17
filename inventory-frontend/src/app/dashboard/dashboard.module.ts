@@ -24,6 +24,7 @@ import { EditProfileComponent } from '../profile/edit-profile/edit-profile.compo
 import { UpdateDistributorComponent } from '../distributor/update-distributor/update-distributor.component';
 import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supplier.component';
 import { MapComponent } from '../map/map.component';
+import { AddStaffComponent } from '../staffs/add-staff/add-staff.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MapComponent } from '../map/map.component';
     EditProfileComponent,
     UpdateDistributorComponent,
     UpdateSupplierComponent,
-    MapComponent
+    MapComponent,
+    AddStaffComponent
   ],
   imports: [
     CommonModule,
