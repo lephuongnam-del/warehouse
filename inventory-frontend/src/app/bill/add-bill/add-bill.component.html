@@ -1,0 +1,81 @@
+<p>add-bill works!</p>
+
+<div>
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <div class="container-fluid">
+          <h3 class="text-dark mb-4">Add Order</h3>
+          <div class="card shadow">
+            <div class="card-header py-3">
+              <p class="text-primary m-0 font-weight-bold">Details</p>
+            </div>
+            <div class="card-body">
+              <form
+              #addForm="ngForm"
+              (ngSubmit)="addBill(addForm.value)" autocomplete="off"
+                class="needs-validation"
+              >
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="buy_price"
+                        ><strong>received date</strong><br
+                      /></label>
+                      <input
+                        type="string"
+                        name="received_date"
+                        [(ngModel)]="bill.receivedDate"
+
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="buy_price"
+                        ><strong>price</strong><br
+                      /></label>
+                      <input
+                        type="number"
+                        name="price"
+                        [(ngModel)]="bill.price"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="buy_price"
+                        ><strong>Products</strong><br
+                      /></label>
+                      <div *ngFor="let product of products">
+                        <label>
+                          <input type="checkbox" [value]="product.id" (change)="onCheckboxChange($event)" />
+                          {{product.name}}
+                        </label>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  
+                  <div class="col">
+                    <div class="form-group text-center">
+                      <label for="submit"></label><br />
+                      <button  class="btn btn-primary" type="submit" name="submit">
+                        ADD BILL
+                      </button>
+                    </div>
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

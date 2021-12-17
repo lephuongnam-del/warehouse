@@ -34,6 +34,11 @@ import { PositionComponent } from '../position/position.component';
 import { AddPositionComponent } from '../position/add-position/add-position.component';
 import { ViewStaffComponent } from '../staffs/view-staff/view-staff.component';
 import { AddOrderComponent } from '../order/add-order/add-order.component';
+import { ViewOrderComponent } from '../order/view-order/view-order.component';
+import { ViewOrderDetailComponent } from '../order/view-order-detail/view-order-detail.component';
+import { ViewBillComponent } from '../bill/view-bill/view-bill.component';
+import { AddBillComponent } from '../bill/add-bill/add-bill.component';
+import { ViewBillDetailComponent } from '../bill/view-bill-detail/view-bill-detail.component';
 
 const routes: Routes = [
   {
@@ -66,10 +71,29 @@ const routes: Routes = [
         component: AddStaffComponent 
       },
       {
+        path: 'vieworderdetail/:id',
+        component: ViewOrderDetailComponent
+      },
+      {
+        path:'vieworder',
+        component:ViewOrderComponent
+      },
+      {
         path: 'addorder',
         component: AddOrderComponent
       },
-      
+      {
+        path: 'viewbill',
+        component: ViewBillComponent
+      },
+      {
+        path: 'viewbilldetail/:id',
+        component: ViewBillDetailComponent
+      },
+      {
+        path: 'addbill',
+        component: AddBillComponent
+      },
       { 
         path: 'staff',
         component: ViewStaffComponent

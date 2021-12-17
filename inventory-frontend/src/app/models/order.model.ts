@@ -8,14 +8,19 @@
 
 import { Warehouse } from './warehouse.model';
 import { Product } from './product.model';
-
+import { staff } from './staff.model';
+import { Supplier } from './supplier.model';
 
  export class Order {
    id: number;
-   staff: number;
+   staff: staff;
    moneynumber: number;
    directions: number;
-   warehouse: Warehouse[];
+   warehouse: Supplier;
    product: Product[];
+   location: Object = {
+    geo_location_x: 10.762622,
+    geo_location_y: 106.660172
+  }
  }
  

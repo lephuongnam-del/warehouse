@@ -1,1 +1,90 @@
-<p>add-order works!</p>
+
+<div>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Add Order</h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Details</p>
+          </div>
+          <div class="card-body">
+            <form
+            [formGroup]="addOrderForm" (ngSubmit)="save(addOrderForm.value)" autocomplete="off"
+              class="needs-validation"
+            >
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="product"
+                      ><strong>Warehouse</strong><br
+                    /></label>
+                    <select   (change)="onChosenWarehouse($event)" formControlName="warehouse">
+                      <option value="-1">Select warehouse</option>
+                        <option *ngFor="let warehouse of warehouse_list"    value="{{warehouse.id}}"  >
+                          {{warehouse.brand_name}}
+                       
+                        </option>
+                    </select>
+                   
+                  </div>
+                  <div class="form-group">
+                    <label for="product"
+                      ><strong>staff</strong><br
+                    /></label>
+                    <select   (change)="onChosenStaff($event)" formControlName="staff">
+                      <option value="-1">Select staff</option>
+                        <option *ngFor="let staff of staff_list"    value="{{staff.id}}"  >
+                          {{staff.name}}
+                       
+                        </option>
+                    </select>
+                   
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                     <div *ngFor="let product of product_list">
+                      <label>
+                        <input type="checkbox" [value]="product.id" (change)="onCheckboxChange($event)" />
+                        {{product.name}}
+                      </label>
+                    </div> 
+                   
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="buy_price"
+                      ><strong>moneynumber</strong><br
+                    /></label>
+                    <input
+                      
+                      type="number"
+                      formControlName="moneynumber"
+                    />
+                    
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                
+                <div class="col">
+                  <div class="form-group text-center">
+                    <label for="submit"></label><br />
+                    <button  class="btn btn-primary" type="submit" name="submit">
+                      ADD ORDER
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <app-map [lat]='10.762622' [lng]='106.660172'></app-map>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

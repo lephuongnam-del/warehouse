@@ -1,0 +1,80 @@
+<p>view-order-detail works!</p>
+<br><br>
+<h1>Update Supplier</h1><br>
+<div style="width: 900px;" >
+  <form #supplierdetails="ngForm" >
+
+    <div class="form-group" >
+       
+        <table class="table my-0" id="dataTable">
+            <thead class="colour">
+              <tr>
+                <!-- <th scope="col">Id</th> -->
+                <th scope="col">Staff</th>
+                <th scope="col">Warehouse</th>
+                <th scope="col">money</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+                <!-- <th scope="row">{{product.productId}}</th> -->
+                <tr >
+               
+                  <td>{{ warehouse.brand_name }}</td>
+                  <td>{{ staff.name }}</td>
+                  <td>{{ order.moneynumber }}</td>
+                  
+                </tr>
+            
+            </tbody>
+            
+          </table>
+        <label>Products</label>
+
+        <table class="table my-0" id="dataTable">
+            <thead class="colour">
+              <tr>
+                <!-- <th scope="col">Id</th> -->
+                <th scope="col">name</th>
+                <th scope="col">buy price</th>
+                <th scope="col">sell price</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+                <!-- <th scope="row">{{product.productId}}</th> -->
+                <tr *ngFor="let product of products">
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.buy_price }}</td>
+                  <td>{{ product.sell_price }}</td>
+                  
+                </tr>
+            
+            </tbody>
+            
+          </table>
+        <!-- <input class="form-control" type="name" name="name" required placeholder="Enter Supplier's Name" 
+          #name=ngModel   [class.is-invalid]="(name.invalid && name.touched)" placeholder="{{}}"
+          >
+          <div *ngIf="name.errors && (name.invalid && name.touched)">
+            <small class="text-danger" *ngIf="name.errors.required">Name is required field</small>
+          
+          </div>
+       
+        <label for="name">money : </label>
+        
+        <input class="form-control" type="name" name="name" required placeholder="Enter Supplier's Name" 
+          #name=ngModel   [class.is-invalid]="(name.invalid && name.touched)" placeholder="{{}}"
+          >
+          <div *ngIf="name.errors && (name.invalid && name.touched)">
+            <small class="text-danger" *ngIf="name.errors.required">Name is required field</small>
+          
+          </div> -->
+    </div>
+        
+
+<br>
+   
+  </form>
+</div>
+<app-map [lat]='location_x' [lng]='location_y'></app-map>

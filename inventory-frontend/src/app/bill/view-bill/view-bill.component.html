@@ -1,0 +1,48 @@
+<p>view-bill works!</p>
+<!-- <p>view-profile works!</p> -->
+<br />
+<br />
+<div class="container">
+  <label>
+    <h1>Bill List</h1>
+  </label>
+  <br />
+  <br />
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Price</th>
+        <th>Received date</th>
+        <th>Name</th>
+  
+
+        <th
+          [routerLink]="['/dashboard/addbill']"
+        >
+          <button type="submit" class="btn btn-success">
+            Add New Bill
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of bills" routerLink='/dashboard/viewbilldetail/{{bill.id}}'>
+        <td>{{ bill.price }}</td>
+        <td>{{ bill.received_date }}</td>
+
+        <td>
+          <button
+            class="btn btn-primary"
+            style="margin-left: 10px"
+          >
+            Detail
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+<br />

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { position } from 'src/app/models/position.model';
 import { PositionService } from 'src/app/services/position.service';
 import { Router } from '@angular/router';
+import { mapDetailService } from 'src/app/services/map-service';
 
 @Component({
   selector: 'app-add-position',

@@ -25,6 +25,12 @@ import { UpdateDistributorComponent } from '../distributor/update-distributor/up
 import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supplier.component';
 import { MapComponent } from '../map/map.component';
 import { AddStaffComponent } from '../staffs/add-staff/add-staff.component';
+import { AddOrderComponent } from '../order/add-order/add-order.component';
+import { ViewOrderComponent } from '../order/view-order/view-order.component';
+import { ViewOrderDetailComponent } from '../order/view-order-detail/view-order-detail.component';
+import { AddBillComponent } from '../bill/add-bill/add-bill.component';
+import { ViewBillComponent } from '../bill/view-bill/view-bill.component';
+import { ViewBillDetailComponent } from '../bill/view-bill-detail/view-bill-detail.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +54,13 @@ import { AddStaffComponent } from '../staffs/add-staff/add-staff.component';
     UpdateDistributorComponent,
     UpdateSupplierComponent,
     MapComponent,
-    AddStaffComponent
+    AddStaffComponent,
+    AddOrderComponent,
+    ViewOrderComponent,
+    ViewOrderDetailComponent,
+    AddBillComponent,
+    ViewBillComponent,
+    ViewBillDetailComponent
   ],
   imports: [
     CommonModule,

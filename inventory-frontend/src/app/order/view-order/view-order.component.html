@@ -1,1 +1,86 @@
-<p>view-order works!</p>
+<div  >
+    <div class="d-flex flex-column" id="content-wrapper">
+      <div id="content">
+        <div class="container-fluid">
+          <h2 class="text-dark mb-4">Order</h2>
+          <div class="card shadow">
+            <div class="card-header py-3">
+              <p class="text-primary m-0 font-weight-bold">
+          
+                <th
+                [routerLink]="['/dashboard/addorder']"
+                >
+                  <button
+                  
+                    class="btn btn-primary align-content-end float-right"
+                    type="button"
+                    
+                  >
+                    Add Order
+                  </button>
+                </th>
+              </p>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 text-nowrap">
+                  <div
+                    id="dataTable_length"
+                    class="dataTables_length"
+                    aria-controls="dataTable"
+                  ></div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="text-md-right dataTables_filter"
+                    id="dataTable_filter"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="table-responsive table mt-2"
+                id="dataTable"
+                role="grid"
+                aria-describedby="dataTable_info"
+              > 
+
+                <table class="table my-0" id="dataTable">
+                  <thead class="colour">
+                    <tr>
+                      <!-- <th scope="col">Id</th> -->
+                      <th scope="col">Warehouse</th>
+                      <th scope="col">Staff</th>
+                      <th scope="col">money</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <!-- <th scope="row">{{product.productId}}</th> -->
+                      <tr *ngFor="let order of orders" routerLink='/dashboard/vieworderdetail/{{order.id}}'>
+                        <td>{{ order.warehouse }}</td>
+                        <td>{{ order.staff }}</td>
+                        <td>{{ order.moneynumber }}</td>
+                        
+                        <td>
+                          <button
+                            class="btn btn-primary"
+                            style="margin-left: 10px"
+                          >
+                            Detail
+                          </button>
+                        </td>
+                      </tr>
+                  
+                  </tbody>
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+    
+      </div>
+    </div>
+  </div>
+  

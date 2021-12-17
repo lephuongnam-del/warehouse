@@ -39,7 +39,7 @@
    }
  
    fetchById(id) {
-     return this.http.get(this.serviceUrl + '/warehouse/' + id);
+     return this.http.get(this.serviceUrl + '/staff/' + id);
    }
  }
  
