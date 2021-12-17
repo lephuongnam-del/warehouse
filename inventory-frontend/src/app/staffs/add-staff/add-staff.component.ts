@@ -13,6 +13,7 @@ import { Gender } from 'src/app/models/gender.model';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ManageUserService } from 'src/app/services/manage-user.service';
 import { staff } from 'src/app/models/staff.model';
+import { StaffService } from 'src/app/services/staff.service';
 
 @Component({
   selector: 'app-add-staff',
@@ -23,7 +24,7 @@ export class AddStaffComponent implements OnInit {
   staff: staff;
 
   constructor(
-    private manageUserService: ManageUserService,
+    private staffService: StaffService,
     public loadingService: LoadingService,
     private router: Router
   ) {
@@ -40,6 +41,8 @@ export class AddStaffComponent implements OnInit {
   }
 
   addStaff(formData) {
-    console.log(formData)
+    console.log(formData);
+    this.staffService.addStaff(formData).subscribe(res => console.log(res)); 
+    this.router.navigate(['dashboard/staff']);    
   }
 }

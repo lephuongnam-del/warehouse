@@ -20,8 +20,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MapComponent } from './map/map.component';
 import { PositionComponent } from './position/position.component';
 import { AddPositionComponent } from './position/add-position/add-position.component';
+import { ViewStaffComponent } from './staffs/view-staff/view-staff.component';
+import { OrderComponent } from './order/order.component';
+import { AddOrderComponent } from './order/add-order/add-order.component';
+import { ViewOrderComponent } from './order/view-order/view-order.component';
 @NgModule({
-  declarations: [AppComponent, PositionComponent, AddPositionComponent],
+  declarations: [AppComponent, PositionComponent, AddPositionComponent, ViewStaffComponent, OrderComponent, AddOrderComponent, ViewOrderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

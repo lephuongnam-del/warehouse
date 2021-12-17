@@ -12,10 +12,10 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./view-products.component.css'],
 })
 export class ViewProductsComponent implements OnInit {
-  products: Data;
+  products: Product[];
 
   constructor(
-    private dataService: DataService,
+    private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
 
@@ -24,17 +24,12 @@ export class ViewProductsComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.forEach((params: Params) => {
-      let id = params['id'];
-
-      this.products = this.dataService.getSingleWarehouse(+params['id'])
+      this.productService.fetchAllProducts().subscribe(data => this.products=data['list'])
+    })
       // this.products = this.dataService.getData();
       // this.products = this.products.filter((fd) => {
       //   return fd.warehouse_id == id;
       // })
-
-      console.log(this.products)
-    })
-
    
   }
 

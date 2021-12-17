@@ -32,6 +32,9 @@ import { DashboardComponent } from './dashboard.component';
 import { AddStaffComponent } from '../staffs/add-staff/add-staff.component';
 import { PositionComponent } from '../position/position.component';
 import { AddPositionComponent } from '../position/add-position/add-position.component';
+import { ViewStaffComponent } from '../staffs/view-staff/view-staff.component';
+import { AddOrderComponent } from '../order/add-order/add-order.component';
+
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -62,9 +65,14 @@ const routes: Routes = [
         path: 'addstaff',
         component: AddStaffComponent 
       },
+      {
+        path: 'addorder',
+        component: AddOrderComponent
+      },
+      
       { 
-        path: 'viewstaff',
-        component: AddStaffComponent 
+        path: 'staff',
+        component: ViewStaffComponent
       },
       {
         path: 'rawmaterials',

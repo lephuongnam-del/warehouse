@@ -2,21 +2,19 @@
   <div class="d-flex flex-column" id="content-wrapper">
     <div id="content">
       <div class="container-fluid">
-        <h2 class="text-dark mb-4">Products</h2>
+        <h2 class="text-dark mb-4">Positions</h2>
         <div class="card shadow">
-          <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">
-              Products
-              <button
-            
-                class="btn btn-primary align-content-end float-right"
-                type="button"
-                routerLink='/dashboard/addproduct'
+          <thead>
+            <tr>
+              <th
+                [routerLink]="['/dashboard/addstaff']"
               >
-                Add Products
-              </button>
-            </p>
-          </div>
+                <button type="submit" class="btn btn-success">
+                  Add New Staff
+                </button>
+              </th>
+            </tr>
+          </thead>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 text-nowrap">
@@ -38,39 +36,33 @@
               id="dataTable"
               role="grid"
               aria-describedby="dataTable_info"
-            >
+            > 
+
               <table class="table my-0" id="dataTable">
                 <thead class="colour">
                   <tr>
                     <!-- <th scope="col">Id</th> -->
-                    <th scope="col">Name</th>
-                    <th scope="col">Buy price</th>
-                    <th scope="col">Sell price</th>
+                    <th scope="col">name</th>
+                    <th scope="col">position</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
                     <!-- <th scope="row">{{product.productId}}</th> -->
-                    <tr *ngFor='let p of products' >
-                      <td>{{p.name}}</td>
-                      <td>{{p.sell_price}}</td>
-                      <td>{{p.buy_price}}</td>
-
-                    </tr>
-                  
-  
+                      <tr *ngFor='let s of staffs' >
+                        <td>{{s.name}}</td>
+                        <td>{{s.position}}</td>
+                      </tr>
+                
                 </tbody>
+                
               </table>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container-fluid" style="margin-top: 20px;">
-        <h1>Location</h1>
-        <app-map [lat]='10.762622' [lng]='106.660172'></app-map>
-      </div>
+  
     </div>
   </div>
 </div>
-
-

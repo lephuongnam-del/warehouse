@@ -9,7 +9,7 @@ import { Warehouse } from './warehouse.model';
 
 export class Product {
   id: string;
-  product_Name: string;
+  name: string;
   qty:number;
   buy_price: number;
   sell_price: number;
